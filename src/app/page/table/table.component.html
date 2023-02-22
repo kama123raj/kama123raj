@@ -1,0 +1,28 @@
+<section>
+    <div class="container">
+        <div class="row">
+    <table class="table">
+        <thead class="thead-light">
+          <tr>
+            <th scope="col"> Id</th>
+            <th scope="col">Title</th>
+            <th scope="col">Body</th>
+            <th> Functions </th>
+        </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let post of posts | paginate: { itemsPerPage: 5, currentPage: p }">
+            
+                <td>{{ post.id }}</td>
+                <td>{{ post.title }}</td>
+                <td>{{ post.body }}</td>
+              </tr>
+        </tbody>
+        
+      </table>
+      <pagination-controls (pageChange)="p = $event"></pagination-controls>
+    </div>
+    </div>
+    </section>
+    
+  

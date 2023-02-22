@@ -1,0 +1,134 @@
+<section>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="filter">
+                    <div class="tags">
+
+                        <p class="closeicon ss" *ngIf="catIcon"> <b>{{selection}}</b> </p>
+                        <p class="closeicon" *ngIf="brandIcon"> <b>{{selectedBrand}}</b> </p>
+                    </div>
+                    <div class="select_opt">
+                        <select (change)="filterData($event)" [(ngModel)]="selectreset">
+                    <option  value="all">All</option>
+                    <option *ngFor="let category of results; let i=index"  value="{{category}}">{{ category }}</option>
+                </select>
+                        <select (change)="filBrand($event)" [(ngModel)]="resetBrand" [(ngModel)]="brandreset">
+                    <option  value="all">All</option>
+                    <option *ngFor="let brd of brands"  value="{{brd}}">{{ brd }}</option>
+                </select>
+                        <span class="price_range">
+                <input type="radio" [(ngModel)]="check" (change)="sort($event)" name="red" value="Low"> <label>Low to High Price</label>
+                <input type="radio" [(ngModel)]="check" (change)="sort($event)" name="red" value="High"> <label>High to Low Price</label>
+                </span>
+                        <span class="clear" *ngIf="closeIcon" (click)="remove($event)">Clear X</span>
+                    </div>
+
+
+                    <!-- <button class="btn btn-secondary" *ngFor="let category of results" (click)="filter($event)" value="{{category}}">
+                    {{ category }}
+                </button> -->
+                </div>
+            </div>
+        </div>
+        <div class="row prd">
+            <div class="col-md-3" [@triggering] *ngFor="let product of displayList | paginate : { itemsPerPage : pageSize, currentPage : s}">
+                <div class="product">
+                    <img src="{{product.thumbnail}}">
+                    <div class="prod_cnt">
+                        <h4> {{product.title}}</h4>
+                        <p><b>Rs:{{ product.price}}/-</b></p>
+                        <p> {{ product.rating}}</p>
+                        <p class="brand">{{product.brand}}</p>
+ 
+  <button type="button" (click)="viewData(product)" value="{{product.id}}"  class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+ View
+  </button>
+                    </div>
+                    <h3 class="cat"> {{product.category}}</h3>
+
+                </div>
+
+            </div>
+            <!-- {{product.id }} 
+        {{product.title}}
+        {{ product.description}}
+        {{ product.price}}
+        {{ product.rating}}
+        {{ product.stock}}
+        {{ product.brand}}
+        {{ product.category}}
+        {{ product.thumbnail}}
+        {{ product.images}} -->
+
+        </div>
+    </div>
+    <div class="container">
+    <div class="row">
+        <div class="col-md-8">
+            <select (change)="changePageSize($event)">
+        <option value="8"> 8 Product per page</option>
+        <option value="12"> 12 Product per page</option>
+        <option value="16"> 16 Product per page</option>
+        <option value="20"> 20 Product per page</option>
+    </select>
+        </div>
+        <div class="col-md-4">
+            <pagination-controls (pageChange)="s = $event"></pagination-controls>
+        </div>
+    </div>
+    </div>
+</section>
+
+ 
+
+ 
+
+  
+  <!-- Modal -->
+  <div class="modal fade" *ngFor="let prd of detailPage; let i = index" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="false">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+            <div class="row">
+                <div class="col-md-5">
+                    <img class="prdimg" src="{{ prd.thumbnail}}">
+                </div>
+                <div class="col-md-7">
+                    <h4>{{prd.title}}</h4>
+                    <h5><b>Rs.</b>{{ prd.price}}/-</h5>
+                    <p><strong>{{ prd.category}}, {{ prd.brand}}</strong></p>
+                    <br>
+                    <p>{{ prd.description}}</p>
+                    <p><b>Stock:</b> {{ prd.stock}}</p>
+                    <p><b>Rating:</b> {{ prd.rating}}</p>
+                    <p id="exied" class="hide red">maximum 20 quantity Only</p>
+                    <div class="qty">
+                        <button (click)="degrement()" class="btn btn-primary">- </button><a> {{productQty}}</a> <button (click)="increment()" class="btn btn-primary">+</button>
+                    </div>
+
+
+                    <button class="btn btn-primary">Add to Cart</button>
+
+                </div>
+
+            </div>
+            <div class="gallery">
+                <div class="gallery_img" *ngFor="let image of prd.images ">
+                    <img src="{{image}}">
+                </div>
+            </div>
+
+
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary">Save changes</button>
+        </div>
+      </div>
+    </div>
+  </div>

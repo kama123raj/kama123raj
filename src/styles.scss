@@ -1,1 +1,205 @@
-/* You can add global styles to this file, and also import other style files */
+    /* You can add global styles to this file, and also import other style files */
+    
+    section {
+        padding: 50px 0px;
+    }
+    
+    table {
+        min-height: 500px;
+    }
+    
+    .hide {
+        display: none;
+    }
+    
+    .red {
+        color: red;
+    }
+    
+    .bg-gray {
+        background-color: #e7e7e7;
+    }
+    
+    .show {
+        display: block !important;
+    }
+    
+    .active-link {
+        color: #fff;
+        background-color: aquamarine;
+    }
+    
+    select {
+        padding: 5px 10px;
+        background-color: rgb(228, 228, 228);
+        border: solid 1px rgb(148, 148, 148);
+        margin-bottom: 30px;
+    }
+    
+    header {
+        margin-bottom: 35px;
+    }
+    
+    select:focus {
+        outline: none;
+    }
+    
+    .select_opt {
+        select {
+            margin-right: 20px;
+        }
+    }
+    
+    .nav {
+        display: flex;
+        gap: 25px;
+        padding: 10px 0 0;
+    }
+    
+    .prd {
+        .col-md-3 {
+            padding-bottom: 30px;
+        }
+    }
+    
+    .product {
+        border: solid 1px #ccc;
+        height: 100%;
+        position: relative;
+        img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+        }
+        .prod_cnt {
+            padding: 10px;
+            border-top: solid 1px #ccc;
+            position: relative;
+            h4 {
+                font-size: 20px;
+                font-weight: bold;
+            }
+            .brand {
+                position: absolute;
+                right: 0;
+                bottom: calc(100% + 0px);
+                padding: 5px;
+                background-color: rgb(70 152 206);
+                color: #fff;
+                font-size: 13px;
+                font-weight: 400;
+                margin-bottom: 0;
+            }
+        }
+        .cat {
+            position: absolute;
+            padding: 5px;
+            background-color: rgb(0, 0, 0, 0.5);
+            color: #fff;
+            top: 5px;
+            left: 5px;
+            font-size: 13px;
+            font-weight: 400;
+        }
+    }
+    
+    .filter {
+        margin-bottom: 30px;
+        button {
+            margin-bottom: 15px;
+            margin-right: 15px;
+        }
+    }
+    
+    .tags {
+        min-height: 52px;
+        .closeicon {
+            margin-right: 20px;
+            display: inline-flex;
+            gap: 10px;
+            padding: 5px 10px;
+            border: solid 1px #ccc;
+            border-radius: 21px;
+            align-items: center;
+            text-transform: capitalize;
+            b {
+                font-weight: 400;
+            }
+        }
+    }
+    
+    .price_range {
+        label {
+            margin-right: 15px;
+            padding-left: 5px;
+        }
+    }
+    
+    span.clear {
+        padding: 5px 15px;
+        display: inline-block;
+        background-color: red;
+        border-radius: 50px;
+        font-size: 10px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        color: #fff;
+        display: inline;
+    }
+    
+    .prdimg {
+        width: 100%;
+        height: 300px;
+        object-fit: cover;
+    }
+    
+    .gallery {
+        width: 100%;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 15px;
+        margin-top: 30px;
+        img {
+            width: 80px;
+            height: 80px;
+            object-fit: cover;
+        }
+    }
+    
+    .qty {
+        margin-bottom: 15px;
+        button,
+        a {
+            width: 35px;
+            height: 35px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 0;
+            font-size: 20px;
+        }
+        a {
+            font-size: 16px;
+        }
+    }
+    
+    .sidebar {
+        margin-left: 0;
+        padding-left: 0;
+        li {
+            list-style: none;
+            padding: 10px 0px 8px;
+            cursor: pointer;
+            border-bottom: solid 1px #ccc;
+            a {
+                text-decoration: none;
+                color: rgb(39, 0, 131);
+                font-weight: 500;
+                &:hover {
+                    color: #666;
+                }
+            }
+        }
+    }
